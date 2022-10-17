@@ -18,17 +18,23 @@ confirmEle.addEventListener("input", function () {
 function entered() {
   var reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
   if (reg.test(passwordEle.value) == false) {
-    passerrorEle2.innerHTML = "Passwords do not created as per rules";
-    if (passwordEle.value != confirmEle.value)
-      passerrorEle.innerHTML = "Passwords do not match";
+    passerrorEle2.innerHTML =
+      "Password should contain atleast one number and one special character.";
+    // if (passwordEle.value != confirmEle.value)
+    //   passerrorEle.innerHTML = "Passwords do not match";
   } else {
-    submitBtn.style.backgroundColor = "#89E87E";
-    submitBtn.innerHTML = "Submitted";
-    passwordEle.value = "";
-    confirmEle.value = "";
-    userEle.value = "";
-    emailEle.value = "";
+    if (passwordEle.value != confirmEle.value)
+      passerrorEle.innerHTML = " Passwords do not get matched.";
+    else {
+      submitBtn.style.backgroundColor = "#89E87E";
+      submitBtn.innerHTML = "Submitted";
+      passwordEle.value = "";
+      confirmEle.value = "";
+      userEle.value = "";
+      emailEle.value = "";
+    }
   }
+
   console.log("checked");
 
   return false;
